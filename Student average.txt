@@ -1,0 +1,46 @@
+# Predefined list of marks (use None for absent students)
+Marklist = [85, 90, None, 78, 78, 92, None, 75]
+
+print("Marks entered:", Marklist)
+
+#Average 
+total = 0
+absent = 0 
+for mark in Marklist:
+    if mark != None: 
+        total += mark
+    else:
+        absent += 1
+average = total / (len(Marklist) - absent)  
+print(f"Average score of the class: {average:.2f}")
+
+#max and min
+max_value = Marklist[0]
+min_value = Marklist[0]
+for mark in Marklist:
+    if mark != None: 
+        if mark > max_value:
+            max_value = mark
+        if mark < min_value:  
+            min_value = mark
+
+print(f"Highest score is {max_value}, lowest score is {min_value}")
+print(f"Number of absent students: {absent}")
+
+#Max Frequncy
+freq = {}
+for mark in Marklist:
+    if mark != None:
+        if mark in freq:
+            freq[mark] += 1
+        else:
+            freq[mark] = 1
+
+highest_freq = 0
+highest_freq_mark = 0
+for mark in freq:
+    if freq[mark] > highest_freq:
+        highest_freq = freq[mark]
+        highest_freq_mark = mark
+        
+print(f"Marks with highest frequncy {highest_freq_mark}")
